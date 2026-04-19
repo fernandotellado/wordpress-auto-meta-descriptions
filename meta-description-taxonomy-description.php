@@ -12,13 +12,17 @@
  *
  * If the term has no description, no meta tag is output.
  *
+ * Priority 1 on wp_head places the meta right after <title>.
+ *
  * Usage: Add to functions.php or as a mu-plugin.
  */
 add_action( 'wp_head', function() {
-	if ( is_category() || is_tag() || is_tax() ) {
-		$description = esc_attr( wp_strip_all_tags( trim( term_description() ) ) );
-		if ( ! empty( $description ) ) {
-			echo '<meta name="description" content="' . $description . '">' . "\n";
-		}
+	if ( ! ( is_category() || is_tag() || is_tax() ) ) {
+		return;
 	}
-});
+
+	$description = trim( wp_strip_all_tags( term_description() ) );
+	if ( ! empty( $description ) ) {
+		echo '<meta name="description" content="' . esc_attr( $description ) . '">' . "\n";
+	}
+}, 1 );
