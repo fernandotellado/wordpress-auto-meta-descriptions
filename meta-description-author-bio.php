@@ -12,13 +12,17 @@
  *
  * If the author has no bio, no meta tag is output.
  *
+ * Priority 1 on wp_head places the meta right after <title>.
+ *
  * Usage: Add to functions.php or as a mu-plugin.
  */
 add_action( 'wp_head', function() {
-	if ( is_author() ) {
-		$description = esc_attr( wp_strip_all_tags( trim( get_the_author_meta( 'description' ) ) ) );
-		if ( ! empty( $description ) ) {
-			echo '<meta name="description" content="' . $description . '">' . "\n";
-		}
+	if ( ! is_author() ) {
+		return;
 	}
-});
+
+	$description = trim( wp_strip_all_tags( get_the_author_meta( 'description' ) ) );
+	if ( ! empty( $description ) ) {
+		echo '<meta name="description" content="' . esc_attr( $description ) . '">' . "\n";
+	}
+}, 1 );
