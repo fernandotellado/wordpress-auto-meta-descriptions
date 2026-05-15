@@ -4,6 +4,22 @@ Generate `<meta name="description">` tags automatically from native WordPress fi
 
 WordPress already has the fields — tagline, excerpt, term description, biographical info — it just doesn't output them as meta descriptions. These snippets fix that.
 
+---
+
+## Prefer a plugin with UI? Use the Native SEO Suite
+
+If you want the same functionality plus a settings page, per-post overrides in the block editor sidebar, Open Graph tags, Twitter Cards, and JSON-LD schema (Article, BreadcrumbList, Person for E-E-A-T), there's a small suite of plugins on WordPress.org that covers all of it:
+
+- **[Native SEO Meta Tags](https://wordpress.org/plugins/native-seo-meta-tags/)** — Meta title, meta description, Open Graph, Twitter Card, JSON-LD schema
+- **[Native SEO NoIndexer](https://wordpress.org/plugins/noindexer/)** — Selective noindex control
+- **[Native SEO Sitemap Customizer](https://wordpress.org/plugins/native-sitemap-customizer/)** — Visual sitemap control
+
+By the same author, built on the same philosophy. Three focused plugins that together replace the core functionality of a traditional SEO plugin. Zero database tables, coexist with Yoast, Rank Math, AIOSEO, SEOPress and others.
+
+The snippets in this repo are still useful if you want a code-only solution, want to learn how meta descriptions work under the hood, or only need the meta description part without the rest.
+
+---
+
 ## How it works
 
 | Page type | WordPress field used | Where to edit it |
